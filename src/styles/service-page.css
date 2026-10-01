@@ -1,0 +1,68 @@
+@layer components {
+  .service-hero { padding: 152px 0 96px; }
+  .service-breadcrumbs { display: flex; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: 12px; margin-bottom: 48px; }
+  .service-breadcrumbs [aria-current] { color: var(--foreground); }
+  .service-breadcrumbs a:hover { color: var(--foreground); }
+  .service-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .service-hero-copy h1 { font-size: clamp(52px, 6.2vw, 88px); max-width: 600px; }
+  .service-hero-copy .body-copy { max-width: 440px; margin-top: 32px; }
+  .service-starting-price { font-size: 24px; margin-top: 24px; }
+  .service-hero-actions { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; margin-top: 32px; }
+  .service-hero-image { max-height: 650px; }
+  .service-editorial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  .service-lead { font-size: 22px; }
+  .service-benefits { list-style: none; padding: 0; margin: 0; }
+  .service-benefits li { display: flex; gap: 24px; padding: 24px 0; border-top: 1px solid var(--border-subtle); font-size: 22px; }
+  .service-benefits li span { color: var(--muted); font-size: 12px; padding-top: 6px; }
+  .service-audience-section { padding-top: 0; }
+  .service-audience-grid, .service-packages-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; margin-top: 48px; }
+  .service-audience-grid article { border-top: 1px solid var(--border-subtle); padding-top: 32px; }
+  .service-audience-grid .body-copy { margin-top: 20px; max-width: 500px; }
+  .service-packages-grid { gap: 24px; }
+  .service-warranty-value { font-size: clamp(64px, 8vw, 112px); line-height: 1; letter-spacing: -.06em; margin-bottom: 24px; }
+  .service-faq-section { padding-top: 0; }
+  .service-faq details { border-top: 1px solid var(--border-subtle); }
+  .service-faq details:last-child { border-bottom: 1px solid var(--border-subtle); }
+  .service-faq summary { list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 0; font-size: 18px; cursor: pointer; }
+  .service-faq summary::-webkit-details-marker { display: none; }
+  .service-faq summary:hover { color: var(--color-steel); }
+  .service-faq summary:focus-visible { outline: 2px solid var(--foreground); outline-offset: 4px; }
+  .service-faq-icon { position: relative; width: 16px; height: 16px; flex-shrink: 0; }
+  .service-faq-icon::before, .service-faq-icon::after { content: ""; position: absolute; background: currentColor; }
+  .service-faq-icon::before { width: 16px; height: 1px; top: 8px; }
+  .service-faq-icon::after { width: 1px; height: 16px; left: 8px; }
+  .service-faq details[open] .service-faq-icon::after { display: none; }
+  .service-faq .body-copy { padding: 0 32px 24px 0; }
+  @media (min-width: 1100px) {
+    .service-hero { padding: 114px 0 72px; }
+    .service-breadcrumbs { margin-bottom: 36px; }
+    .service-hero-copy .body-copy { margin-top: 24px; }
+    .service-starting-price { margin-top: 18px; }
+    .service-hero-actions { margin-top: 24px; row-gap: 18px; }
+    .service-benefits li { padding-block: 18px; }
+    .service-audience-grid, .service-packages-grid { margin-top: 36px; row-gap: 36px; }
+    .service-packages-grid { row-gap: 18px; }
+    .service-audience-grid article { padding-top: 24px; }
+    .service-audience-grid .body-copy { margin-top: 15px; }
+    .service-warranty-value { margin-bottom: 18px; }
+    .service-faq summary { padding-block: 18px; }
+    .service-faq .body-copy { padding-bottom: 18px; }
+  }
+  @media (max-width: 1099px) {
+    .service-hero-grid, .service-editorial-grid { gap: 32px; }
+    .service-hero-copy h1 { font-size: 60px; }
+    .service-hero-actions { gap: 16px; }
+  }
+  @media (max-width: 767px) {
+    .service-hero { padding: 112px 0 80px; }
+    .service-breadcrumbs { gap: 8px; margin-bottom: 32px; }
+    .service-hero-grid, .service-editorial-grid, .service-audience-grid, .service-packages-grid { grid-template-columns: 1fr; gap: 32px; }
+    .service-hero-copy h1 { font-size: clamp(42px, 12vw, 60px); }
+    .service-hero-copy .body-copy { margin-top: 24px; }
+    .service-hero-image { aspect-ratio: 4 / 3; }
+    .service-hero-actions { align-items: stretch; flex-direction: column; gap: 16px; }
+    .service-hero-actions .secondary-action { align-self: flex-start; }
+    .service-lead, .service-benefits li { font-size: 18px; }
+    .service-audience-grid, .service-packages-grid { margin-top: 32px; }
+  }
+}

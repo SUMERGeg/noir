@@ -1,0 +1,92 @@
+@layer components {
+  .case-hero, .case-index { padding-top: 152px; }
+  .case-breadcrumbs { display: flex; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: 12px; margin-bottom: 48px; }
+  .case-breadcrumbs [aria-current], .case-breadcrumbs a:hover { color: var(--foreground); }
+  .case-hero-heading { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: end; gap: 64px; padding-bottom: 64px; }
+  .case-hero-heading h1 { font-size: clamp(48px, 6.3vw, 92px); text-wrap: balance; }
+  .case-hero-heading .body-copy { max-width: 390px; color: var(--muted); }
+  .case-hero-image { aspect-ratio: 2 / 1; max-height: 800px; }
+  .case-hero-image img { object-position: center 60%; }
+  .case-vehicle { padding-block: 40px; border-bottom: 1px solid var(--border-subtle); }
+  .case-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+  .case-facts > div + div { border-left: 1px solid var(--border-subtle); padding-left: 32px; }
+  .case-facts dt { font-size: 12px; color: var(--muted); margin-bottom: 12px; }
+  .case-facts dd { font-size: 16px; }
+  .case-editorial { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; }
+  .case-lead { font-size: 22px; }
+  .case-work-section { padding-top: 0; }
+  .case-work-list li { display: flex; gap: 24px; padding: 20px 0; border-top: 1px solid var(--border-subtle); font-size: 22px; }
+  .case-work-list span { color: var(--muted); font-size: 12px; padding-top: 5px; }
+  .case-process { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; margin-top: 64px; }
+  .case-process li { border-top: 1px solid var(--border-subtle); padding-top: 24px; }
+  .case-process .heading-subheading { font-size: 24px; }
+  .case-process .body-copy { margin-top: 16px; color: var(--muted); }
+  .case-technical-facts { margin-top: 48px; }
+  .case-technical-facts dd { font-size: clamp(32px, 4.2vw, 60px); letter-spacing: -.045em; line-height: 1.1; }
+  .case-gallery { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 32px; align-items: start; margin-top: 48px; }
+  .case-gallery figure:nth-child(even) { padding-top: 96px; }
+  .case-gallery-image { aspect-ratio: 4 / 3; }
+  .case-gallery figure:nth-child(even) .case-gallery-image { aspect-ratio: 4 / 5; }
+  .case-gallery figure:first-child img { object-position: 70% center; }
+  .case-gallery figcaption { color: var(--muted); font-size: 12px; margin-top: 16px; }
+  .case-result-list { margin-top: 32px; display: grid; gap: 12px; color: var(--muted); font-size: 14px; }
+  .case-related-section { padding-top: 0; }
+  .case-related-section .site-container { padding-top: 64px; border-top: 1px solid var(--border-subtle); }
+  .case-related-section .secondary-action { margin-top: 24px; }
+  .case-index { padding-bottom: var(--section-spacing); }
+  .case-index-heading { margin-bottom: 64px; }
+  .case-index-heading h1 { font-size: clamp(48px, 7vw, 100px); }
+  .case-index-list { display: grid; gap: 96px; }
+  .case-index-image { aspect-ratio: 2 / 1; }
+  .case-index-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; margin-top: 40px; }
+  .case-index-details .heading-section { font-size: clamp(28px, 3.6vw, 48px); }
+  .case-index-details .body-copy { color: var(--muted); }
+  .case-index-services { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-block: 24px; font-size: 12px; color: var(--muted); }
+  @media (min-width: 1100px) {
+    .case-hero { padding-top: 114px; }
+    .case-breadcrumbs { margin-bottom: 36px; }
+    .case-hero-heading { padding-bottom: 48px; }
+    .case-vehicle { padding-block: 30px; }
+    .case-facts dt { margin-bottom: 9px; }
+    .case-work-list li { padding-block: 15px; }
+    .case-process { margin-top: 48px; row-gap: 36px; }
+    .case-process li { padding-top: 18px; }
+    .case-process .body-copy { margin-top: 12px; }
+    .case-technical-facts, .case-gallery { margin-top: 36px; }
+    .case-gallery figure:nth-child(even) { padding-top: 72px; }
+    .case-gallery figcaption { margin-top: 12px; }
+    .case-result-list { margin-top: 24px; row-gap: 9px; }
+    .case-related-section .site-container { padding-top: 48px; }
+    .case-related-section .secondary-action { margin-top: 18px; }
+    .case-index { padding-top: 102px; }
+    .case-index-heading { margin-bottom: 24px; }
+    .case-index-heading .section-eyebrow { margin-bottom: 12px; }
+    .case-index-list { row-gap: 72px; }
+    .case-index-details { margin-top: 30px; }
+    .case-index-services { margin-block: 18px; row-gap: 6px; }
+    .case-index-heading h1 { font-size: clamp(56px, 5.5vw, 76px); }
+    .case-index-title-break { display: none; }
+  }
+  @media (max-width: 1099px) {
+    .case-hero-heading, .case-editorial, .case-index-details { gap: 32px; }
+    .case-process { gap: 24px; }
+  }
+  @media (max-width: 767px) {
+    .case-hero, .case-index { padding-top: 112px; }
+    .case-breadcrumbs { gap: 8px; margin-bottom: 32px; }
+    .case-hero-heading, .case-editorial, .case-process, .case-gallery, .case-index-details { grid-template-columns: 1fr; gap: 32px; }
+    .case-hero-heading { padding-bottom: 32px; }
+    .case-hero-heading h1 { font-size: clamp(40px, 11vw, 60px); }
+    .case-hero-image, .case-index-image { aspect-ratio: 16 / 9; }
+    .case-hero-image img, .case-index-image img { object-position: right 60%; }
+    .case-facts { grid-template-columns: 1fr; gap: 24px; }
+    .case-facts > div + div { border-left: 0; border-top: 1px solid var(--border-subtle); padding: 24px 0 0; }
+    .case-lead, .case-work-list li { font-size: 18px; }
+    .case-process, .case-gallery, .case-technical-facts { margin-top: 40px; }
+    .case-gallery figure:nth-child(even) { padding-top: 0; }
+    .case-gallery figure:nth-child(even) .case-gallery-image { aspect-ratio: 4 / 3; }
+    .case-related-section .site-container { padding-top: 40px; }
+    .case-index-heading { margin-bottom: 40px; }
+    .case-index-details { margin-top: 32px; }
+  }
+}

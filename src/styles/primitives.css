@@ -1,0 +1,178 @@
+@layer components {
+  .site-container {
+    width: calc(100% - 2 * var(--site-gutter));
+    max-width: var(--container-content);
+    margin-inline: auto;
+  }
+
+  .heading-display {
+    font-size: var(--type-display-size);
+    line-height: var(--type-display-leading);
+    font-weight: 400;
+    letter-spacing: var(--type-display-tracking);
+  }
+
+  .heading-section {
+    font-size: var(--type-section-size);
+    line-height: 1.1;
+    font-weight: 400;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+  }
+
+  .heading-subheading {
+    font-size: var(--type-subheading-size);
+    line-height: 1.25;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+  }
+
+  .body-copy {
+    font-size: var(--type-body-size);
+    line-height: var(--type-body-leading);
+  }
+
+  .technical-label {
+    font-size: var(--type-label-size);
+    line-height: 1.6;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .label-marked {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .label-marker {
+    width: 27px;
+    height: 1px;
+    flex: none;
+    background: var(--muted);
+  }
+
+  .primary-action,
+  .secondary-action,
+  .outline-action {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .primary-action {
+    justify-content: space-between;
+    gap: 36px;
+    min-height: 56px;
+    padding: var(--space-4) 23px;
+    background: var(--action-background);
+    color: var(--action-foreground);
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color var(--interaction-duration) ease;
+  }
+
+  .primary-action:hover {
+    background: var(--action-hover);
+  }
+
+  .secondary-action {
+    gap: 18px;
+    min-height: 44px;
+    padding-block: 10px;
+    color: var(--foreground);
+    font-size: 14px;
+  }
+
+  .secondary-action svg {
+    transition: transform var(--interaction-duration) ease;
+  }
+
+  .secondary-action:hover svg {
+    transform: translateX(3px);
+  }
+
+  .outline-action {
+    justify-content: center;
+    gap: var(--space-6);
+    min-height: 44px;
+    padding: 10px 17px;
+    border: 1px solid var(--action-outline-border);
+    color: var(--foreground);
+    font-size: 12px;
+    transition: background-color var(--interaction-duration) ease, color var(--interaction-duration) ease;
+  }
+
+  .outline-action:hover {
+    background: var(--action-background);
+    color: var(--action-foreground);
+  }
+
+  button.primary-action:disabled,
+  button.secondary-action:disabled,
+  button.outline-action:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .section {
+    background: var(--surface);
+    color: var(--foreground);
+  }
+
+  .section-dark {
+    --surface: var(--color-warm-black);
+    --foreground: var(--color-off-white);
+    --muted: var(--color-steel);
+    --border-subtle: rgb(241 240 236 / 18%);
+    --action-background: var(--color-off-white);
+    --action-foreground: var(--color-warm-black);
+    --action-hover: #d9d8d3;
+    --action-outline-border: rgb(241 240 236 / 38%);
+  }
+
+  .section-light {
+    --surface: var(--color-off-white);
+    --foreground: var(--color-warm-black);
+    --muted: #5f615f;
+    --border-subtle: rgb(11 11 11 / 18%);
+    --action-background: var(--color-warm-black);
+    --action-foreground: var(--color-off-white);
+    --action-hover: var(--color-graphite);
+    --action-outline-border: rgb(11 11 11 / 38%);
+  }
+
+  .section-spaced {
+    padding-block: var(--section-spacing);
+  }
+
+  .content-card {
+    min-width: 0;
+    padding: var(--space-8);
+    border: 1px solid var(--border-subtle);
+    background: var(--surface);
+    color: var(--foreground);
+  }
+
+  .image-frame {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .image-frame-landscape { aspect-ratio: 16 / 9; }
+  .image-frame-square { aspect-ratio: 1; }
+  .image-frame-portrait { aspect-ratio: 4 / 5; }
+
+  .image-frame-photo {
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .content-card {
+    padding: var(--space-6);
+  }
+}

@@ -1,0 +1,72 @@
+@layer components {
+  .detail-explorer { margin-top: 36px; }
+  .detail-overview { position: relative; isolation: isolate; aspect-ratio: 1672 / 941; background: var(--color-warm-black); }
+  .detail-overview > img { object-fit: contain; }
+  .detail-marker { position: absolute; z-index: 1; display: grid; place-items: center; width: 52px; height: 52px; transform: translate(-50%, -50%); cursor: pointer; color: var(--color-off-white); }
+  .detail-marker-number { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid rgb(241 240 236 / 80%); border-radius: 50%; background: rgb(11 11 11 / 90%); font-size: 11px; font-weight: 550; box-shadow: 0 0 0 5px rgb(11 11 11 / 22%); transition: transform 320ms ease, background-color 320ms ease, color 320ms ease; }
+  .detail-marker:is(:hover, :focus-visible) .detail-marker-number { transform: scale(1.12); background: var(--color-off-white); color: var(--color-warm-black); }
+  .detail-marker-label { position: absolute; right: calc(100% + 4px); width: max-content; padding: 8px 12px; background: var(--color-warm-black); color: var(--color-off-white); font-size: 12px; opacity: 0; transform: translateX(6px); pointer-events: none; transition: opacity 250ms ease, transform 250ms ease; }
+  .detail-marker:is(:hover, :focus-visible) .detail-marker-label { opacity: 1; transform: none; }
+  .detail-marker:focus-visible { outline-color: var(--color-off-white); outline-offset: 0; border-radius: 50%; }
+  .detail-overview-caption { margin-top: 16px; color: var(--muted); font-size: 13px; }
+  .detail-directory { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 28px; }
+  .detail-directory button { display: flex; align-items: center; width: 100%; min-height: 56px; gap: 14px; border-top: 1px solid var(--border-subtle); text-align: left; font-size: 16px; cursor: pointer; transition: color 200ms ease; }
+  .detail-directory-number { color: var(--muted); font-size: 11px; }
+  .detail-directory svg { flex: none; margin-left: auto; transition: transform 250ms ease; }
+  .detail-directory button:hover svg { transform: translate(3px, -3px); }
+  .detail-directory button:is(:hover, :focus-visible) { color: var(--color-steel); }
+  .detail-concept-note { margin-top: 12px; color: var(--muted); font-size: 12px; }
+
+  .detail-viewer { position: fixed; inset: 0; width: 100%; max-width: none; height: 100dvh; max-height: none; margin: 0; padding: 24px 40px; border: 0; background: transparent; color: var(--color-off-white); overflow-y: auto; }
+  .detail-viewer[open] { display: flex; align-items: center; justify-content: center; }
+  .detail-viewer::backdrop { background: rgb(0 0 0 / 92%); }
+  .detail-viewer-sheet { width: 100%; max-width: 1120px; margin-block: auto; background: var(--color-warm-black); border: 1px solid rgb(241 240 236 / 16%); animation: detail-viewer-enter 420ms cubic-bezier(.25, .6, .3, 1); }
+  .detail-viewer-top { display: flex; align-items: center; justify-content: space-between; min-height: 60px; padding: 8px 24px; gap: 16px; border-bottom: 1px solid rgb(241 240 236 / 16%); }
+  .detail-viewer-top > span { font-size: 11px; letter-spacing: .07em; color: var(--color-steel); }
+  .detail-viewer-control { display: grid; place-items: center; flex: none; width: 44px; height: 44px; cursor: pointer; transition: background-color 200ms ease; }
+  .detail-viewer-control:hover { background: rgb(241 240 236 / 12%); }
+  .detail-viewer-image { position: relative; height: min(60dvh, 640px); background: #111; overflow: hidden; }
+  .detail-viewer-image img { object-fit: contain; animation: detail-image-enter 650ms cubic-bezier(.25, .6, .3, 1); }
+  .detail-viewer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 24px 32px 16px; border-top: 1px solid rgb(241 240 236 / 16%); }
+  .detail-viewer-count { display: block; margin-bottom: 6px; color: var(--color-steel); font-size: 11px; letter-spacing: .1em; }
+  .detail-viewer-caption h3 { font-size: clamp(24px, 3vw, 32px); line-height: 1.25; letter-spacing: -.035em; }
+  .detail-viewer-caption p { max-width: 620px; margin-top: 10px; font-size: 14px; line-height: 1.6; color: var(--color-steel); }
+  .detail-viewer-navigation { display: flex; flex: none; gap: 8px; }
+  .detail-viewer-navigation button { border: 1px solid rgb(241 240 236 / 24%); }
+  .detail-viewer-note { padding: 0 32px 24px; color: var(--color-steel); font-size: 11px; }
+
+  @media (max-width: 1099px) {
+    .detail-directory { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 24px; }
+  }
+  @media (max-width: 767px) {
+    .detail-explorer { margin-top: 32px; }
+    .detail-marker { width: 44px; height: 44px; }
+    .detail-marker-number { width: 28px; height: 28px; font-size: 10px; box-shadow: 0 0 0 3px rgb(11 11 11 / 22%); }
+    .detail-marker-label { display: none; }
+    .detail-directory { margin-top: 20px; gap: 8px 16px; }
+    .detail-directory button { min-height: 56px; gap: 9px; font-size: 14px; }
+    .detail-directory svg { width: 16px; }
+    .detail-overview-caption { font-size: 12px; line-height: 1.6; }
+    .detail-concept-note { line-height: 1.6; }
+    .detail-viewer { padding: 16px; }
+    .detail-viewer-top { padding: 8px 12px; min-height: 60px; }
+    .detail-viewer-top > span { max-width: 200px; font-size: 10px; line-height: 1.5; }
+    .detail-viewer-image { height: auto; aspect-ratio: 3 / 2; max-height: 43dvh; }
+    .detail-viewer-bottom { align-items: start; gap: 16px; padding: 20px 16px 12px; }
+    .detail-viewer-caption h3 { font-size: 24px; }
+    .detail-viewer-caption p { font-size: 13px; }
+    .detail-viewer-navigation { flex-direction: column; }
+    .detail-viewer-note { padding: 0 16px 20px; }
+  }
+  @media (max-height: 550px) and (min-width: 768px) {
+    .detail-viewer-image { height: 55dvh; }
+    .detail-viewer-bottom { padding-block: 16px 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .detail-viewer-sheet, .detail-viewer-image img { animation: none; }
+    .detail-marker-number, .detail-marker-label, .detail-directory svg, .detail-viewer-control { transition: none; }
+  }
+}
+
+@keyframes detail-viewer-enter { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes detail-image-enter { from { opacity: .3; transform: scale(1.035); } to { opacity: 1; transform: none; } }

@@ -1,0 +1,15 @@
+@layer components {
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .project-image .image-frame-photo,
+    .case-index-image .image-frame-photo,
+    .case-gallery-image .image-frame-photo {
+      transition: transform 1100ms cubic-bezier(.25, .6, .3, 1);
+    }
+
+    .project-image:hover .image-frame-photo,
+    .case-index-image:hover .image-frame-photo,
+    .case-gallery-image:hover .image-frame-photo {
+      transform: scale(1.06);
+    }
+  }
+}
