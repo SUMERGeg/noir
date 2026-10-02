@@ -6,10 +6,9 @@ import { Heading, Label, Text } from "@/components/ui/typography";
 import { pricing } from "@/content/pricing";
 import { site } from "@/content/site";
 import { formatPrice } from "@/lib/format-price";
-import { PpfCoverageSelector } from "@/components/pricing/ppf-coverage-selector";
-import type { PpfZoneId } from "@/content/ppf-zones";
+import { PpfCoverageQuery } from "@/components/pricing/ppf-coverage-query";
 
-export function PricingPreview({ standalone = false, initialZones }: { standalone?: boolean; initialZones?: readonly PpfZoneId[] }) {
+export function PricingPreview({ standalone = false }: { standalone?: boolean }) {
   return (
     <Section tone="light" id="pricing" aria-labelledby="pricing-heading">
       <Container>
@@ -20,7 +19,7 @@ export function PricingPreview({ standalone = false, initialZones }: { standalon
           </div>
           {!standalone && <ActionLink href="/pricing" prefetch={false} variant="secondary">Все цены</ActionLink>}
         </div>
-        {standalone && <PpfCoverageSelector key={initialZones?.join(",")} initialZones={initialZones} />}
+        {standalone && <PpfCoverageQuery />}
         <div className={standalone ? "pricing-ceramic" : "pricing-list"}>
           {pricing.filter((item) => !standalone || item.serviceSlug !== "ppf").map((item, index) => (
             <Card key={item.id} className="pricing-card">

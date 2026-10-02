@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { hero } from "@/content/home";
+import { absoluteSiteUrl } from "@/lib/site-url";
 
 export function pageMetadata(
   title: string,
@@ -12,21 +13,21 @@ export function pageMetadata(
   return {
     title,
     description,
-    alternates: { canonical: path },
+    alternates: { canonical: absoluteSiteUrl(path.endsWith("/") ? path : `${path}/`) },
     openGraph: {
       title: `${title} — NOIR Detailing`,
       description,
-      url: path,
+      url: absoluteSiteUrl(path.endsWith("/") ? path : `${path}/`),
       siteName: "NOIR Detailing",
       locale: "ru_RU",
       type: "website",
-      images: [image],
+      images: [{ ...image, url: absoluteSiteUrl(image.url) }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${title} — NOIR Detailing`,
       description,
-      images: [{ url: image.url, alt: image.alt }],
+      images: [{ url: absoluteSiteUrl(image.url), alt: image.alt }],
     },
   };
 }

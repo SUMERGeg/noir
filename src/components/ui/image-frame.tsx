@@ -1,4 +1,5 @@
-import Image, { type ImageProps } from "next/image";
+import type { ImageProps } from "next/image";
+import Image from "@/components/ui/site-image";
 import { classNames } from "@/lib/class-names";
 
 type ImageFrameProps = Omit<ImageProps, "fill" | "width" | "height" | "className" | "sizes"> & {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import Image from "next/image";
+import Image from "@/components/ui/site-image";
 import { ChevronsLeftRight } from "lucide-react";
 
 interface ComparisonImage {

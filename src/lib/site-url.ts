@@ -1,4 +1,6 @@
-// Set SITE_URL to the public origin before building the deployed site.
+import { publicPath } from "@/lib/public-path";
+
+// SITE_URL is the origin; NEXT_PUBLIC_BASE_PATH identifies the project directory.
 export const siteUrl = new URL(process.env.SITE_URL || "http://localhost:3000");
 
 if (!["http:", "https:"].includes(siteUrl.protocol) || siteUrl.username || siteUrl.password) {
@@ -8,3 +10,7 @@ if (!["http:", "https:"].includes(siteUrl.protocol) || siteUrl.username || siteU
 siteUrl.pathname = "/";
 siteUrl.search = "";
 siteUrl.hash = "";
+
+export function absoluteSiteUrl(path: string) {
+  return new URL(publicPath(path), siteUrl).href;
+}

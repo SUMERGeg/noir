@@ -6,15 +6,14 @@ import { Heading, Label, Text } from "@/components/ui/typography";
 import { pricing } from "@/content/pricing";
 import { services, type ServiceSlug } from "@/content/services";
 import { formatPrice } from "@/lib/format-price";
-import { PpfCoverageSelector } from "@/components/pricing/ppf-coverage-selector";
-import type { PpfZoneId } from "@/content/ppf-zones";
+import { PpfCoverageQuery } from "@/components/pricing/ppf-coverage-query";
 
-export function ServicePackages({ slug, initialZones }: { slug: ServiceSlug; initialZones?: readonly PpfZoneId[] }) {
+export function ServicePackages({ slug }: { slug: ServiceSlug }) {
   const packages = pricing.filter((item) => item.serviceSlug === slug);
   const service = services.find((item) => item.slug === slug)!;
   return <Section tone="light" id="service-packages" aria-labelledby="service-packages-heading"><Container>
     <Label marker className="section-eyebrow">05 / Стоимость</Label><Heading id="service-packages-heading">{packages.length ? "Выберите объём защиты" : "Стоимость работ"}</Heading>
-    {slug === "ppf" ? <PpfCoverageSelector key={initialZones?.join(",")} initialZones={initialZones} /> : <div className="service-packages-grid">{packages.map((item, index) => <Card key={item.id} className="pricing-card">
+    {slug === "ppf" ? <PpfCoverageQuery /> : <div className="service-packages-grid">{packages.map((item, index) => <Card key={item.id} className="pricing-card">
       <Label className="package-index">0{index + 1} / {slug.toUpperCase()}</Label>
       <Heading as="h3" variant="subheading" lang="en">{item.title}</Heading>
       <p className="package-price">{formatPrice(item.startingPrice)}</p>

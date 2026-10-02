@@ -85,6 +85,31 @@ Canonical, Open Graph, Twitter Cards и `sitemap.xml` используют эт�
 При смене домена требуется новая сборка. Параметры заявки и выбранных зон PPF
 не включаются в canonical.
 
+### GitHub Pages
+
+Проект собирается в статическую папку `out/`. Workflow
+`.github/workflows/pages.yml` собирает и публикует сайт после push в `main`.
+В репозитории **Settings → Pages → Build and deployment → Source** выберите
+**GitHub Actions**. Адрес: `https://sumergeg.github.io/noir/`.
+Workflow автоматически задаёт `SITE_URL` и `NEXT_PUBLIC_BASE_PATH` из настроек Pages.
+При подключении собственного домена пересоберите сайт через Actions.
+
+Локальная проверка сборки для `/noir/` в PowerShell:
+
+```powershell
+$env:SITE_URL = 'https://sumergeg.github.io'
+$env:NEXT_PUBLIC_BASE_PATH = '/noir'
+npm run build
+npm start
+```
+
+Откройте `http://127.0.0.1:3000/noir/`. Если порт занят, перед запуском задайте
+`$env:PORT = '3001'`. Для обычной разработки в корне сайта используйте
+`npm run dev` без `NEXT_PUBLIC_BASE_PATH`.
+
+Страницы, шрифты и WebP изображения обслуживаются статически. Выбор пакетов
+и зон передаётся через URL и читается в браузере. Форма остаётся демонстрационной.
+
 Manrope подключён локально; лицензия находится в `src/assets/fonts/OFL.txt`.
 Изображения созданы встроенным ImageGen для вымышленного проекта; описание и промпты
 сохранены в `public/images/README.md`.

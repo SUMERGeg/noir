@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next";
 import { projectCases } from "@/content/project-cases";
 import { services } from "@/content/services";
-import { siteUrl } from "@/lib/site-url";
+import { absoluteSiteUrl } from "@/lib/site-url";
+
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
@@ -9,5 +11,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...services.map(({ slug }) => `/services/${slug}`),
     ...projectCases.map(({ slug }) => `/projects/${slug}`),
   ];
-  return paths.map((path) => ({ url: new URL(path, siteUrl).href }));
+  return paths.map((path) => ({ url: absoluteSiteUrl(path.endsWith("/") ? path : `${path}/`) }));
 }
