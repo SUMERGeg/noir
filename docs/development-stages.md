@@ -1,6 +1,6 @@
 # Development Stages
 
-## Current Progress — 2026-10-01
+## Current Progress — 2026-10-03
 
 - Документы подготовительных этапов 1–7 утверждены пользователем.
 - Этап 8 выполнен: Next.js App Router, TypeScript strict, Tailwind CSS, Motion,
@@ -60,7 +60,15 @@
   для устранения замечания по контрасту. Production-сборка и TypeScript прошли.
   Контрольный Lighthouse: Performance 96–97 mobile, остальные категории — 100;
   CLS 0, ошибок консоли нет. Подробности: `docs/final-review.md`.
-- Следующий этап: 19 — Deploy; затем 20 — Portfolio Case Study.
+- Этап 19 выполнен: сайт опубликован на https://sumergeg.github.io/noir/.
+  Next.js экспортирует статический HTML; GitHub Actions собирает и публикует
+  изменения из `main`. Настроены пути ресурсов, canonical и sitemap для `/noir/`.
+  Выбор пакетов и зон читается в браузере и передаётся в демонстрационную заявку.
+  Сборка и TypeScript прошли локально и в Actions. Проверены 567 ссылок/ресурсов
+  экспорта, адаптив 390/768/1024/1440px и основные интерактивные сценарии.
+  На живом сайте проверены главная, PPF и переход в заявку; ошибок консоли нет.
+  Настройка и локальный preview описаны в `README.md`, раздел GitHub Pages.
+- Следующий этап: 20 — Portfolio Case Study.
 
 ## 1. Research
 
